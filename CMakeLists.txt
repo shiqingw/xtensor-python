@@ -10,6 +10,8 @@
 cmake_minimum_required(VERSION 3.14)
 project(xtensor-python)
 
+find_package(pybind11 REQUIRED CONFIG)
+
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 set(XTENSOR_PYTHON_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
@@ -59,8 +61,6 @@ find_package(PythonInterp ${PythonLibsNew_FIND_VERSION} REQUIRED)
 #     find_package(pybind11 ${pybind11_REQUIRED_VERSION} REQUIRED)
 #     message(STATUS "Found pybind11: ${pybind11_INCLUDE_DIRS}/pybind11")
 # endif()
-
-find_package(pybind11 REQUIRED CONFIG)
 
 # Look for NumPy headers, except if NUMPY_INCLUDE_DIRS is passed,
 # which is required under some circumstances (such as wasm, where
